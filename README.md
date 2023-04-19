@@ -36,17 +36,17 @@ cd speech_models
 
 The OpenAI whisper module requires [ffmpeg](https://ffmpeg.org/), which must be fully installed. You may also need [Rust](https://www.rust-lang.org/) installed. See the [whisper github page](https://github.com/openai/whisper#setup) for more details.
 
-If you have properly installed the whisper and it's dependencies, you can test it with the following commands. The wav file referenced is included with this repo, and it taken from [Open Speach Repository](https://www.voiptroubleshooter.com/open_speech/american.html). The sentences contained in the file may be viewed [here](https://www.cs.columbia.edu/~hgs/audio/harvard.html), as "list 3" for the specific audio file included in the sample folder.
+If you have properly installed whisper and it's dependencies, you can test it with the following commands. The wav file referenced is included with this repo, and was taken from [Open Speach Repository](https://www.voiptroubleshooter.com/open_speech/american.html). The sentences contained in the file may be viewed [here](https://www.cs.columbia.edu/~hgs/audio/harvard.html), as "list 3" for the specific audio file included in the example below.
 
 ```console
 # Try using whisper to transcribe audio to text 
-whisper "sample\OSR_us_000_0012_8k.wav" --model tiny  --language en
+whisper "sample\OSR_us_000_0012_8k.wav" --model tiny --language en
 
 # Try using gpu
-whisper "sample\OSR_us_000_0012_8k.wav" --model tiny  --language en --device cuda
+whisper "sample\OSR_us_000_0012_8k.wav" --model tiny --language en --device cuda
 ```
 
-When using OpenAI Whisper for speech-to-text, the provided code will use a gpu if available, but this requires a gpu-enabled version of [pytorch](https://pytorch.org/). If you already have pytorch installed, you would need to uninstall and then add the gpu-enabled version if you would like it to use your gpu for stt transcription:
+When using OpenAI Whisper for speech-to-text, the provided code will use a gpu if available, but this requires a gpu-enabled version of [pytorch](https://pytorch.org/). If you already have pytorch installed, you would need to uninstall and then add the gpu-enabled version if you would like to be able to use your gpu for stt transcription:
 
 ```console
 pip uninstall torch
@@ -60,7 +60,7 @@ pip install torch -f https://download.pytorch.org/whl/torch_stable.html
 
  ```console
 python stt.py
-# or
+rem OR
 python tts.py
  ```
 
@@ -75,7 +75,7 @@ By default a random english speaker is selected. You may specify a different lan
 ```console
 rem tts.py command line options
 
-rem Specify specific text to be read.
+rem Specify text to be read.
 python tts.py --text "<your text here>"
 
 rem Choose language. Default is "en".
@@ -84,7 +84,7 @@ python tts.py --language "<language>"
 rem Specify model. Default is "v3_en".
 python tts.py --model "<model>"
 
-rem Specify voice used. Default is "random".
+rem Specify speaker (voice) used. Default is "random".
 python tts.py --speaker "<speaker>"
 
 rem Example specifying Russian, with speaker "xenia" and Russian text
