@@ -16,7 +16,7 @@ The stt.py page uses [pvrecorder](https://github.com/Picovoice/pvrecorder/tree/m
 
 ### tts
 
-- Launch the tts.py page, and a default string from the code will be read aloud. Optionally enter a command line argument (--text "your text here") and that will be used. A random voice will be used each time, or see other [command line options](###-text-to-speech) below to specify a specific voice. 
+- Launch the tts.py page, and a default string from the code will be read aloud. Optionally enter a command line argument (--text "your text here") and that will be used. A random voice will be used each time, or see other [command line options](#text-to-speech) below to specify a specific voice. 
 
 ### stt
 
