@@ -16,15 +16,11 @@ The stt.py page uses [pvrecorder](https://github.com/Picovoice/pvrecorder/tree/m
 
 ### tts
 
-- Launch the tts.py page, and a default string from the code will be read aloud. Optionally enter a command line argument (--text "your text here") and that will be used. A random voice will be used each time, or see other [command line options](#text-to-speech) below to specify a specific voice. 
+- Launch the tts.py page, and a default string from the code will be read aloud. Optionally launch the page with a command line argument (--text "your text here") and that will be used. A random speaker voice will be used each time, or see [command line options](#text-to-speech) below to use a specific speaker voice. 
 
 ### stt
 
 - Launch the stt.py page, and once the message that audio is recording appears, speak to your computer and it will be transcribed to text, then printed to the console.
-
-## Installation and setup
-
-To run this project, you'll need Python installed on your machine. You can install from [python.org](https://www.python.org/downloads/).
 
 ## Clone the repository
 ```console
@@ -32,21 +28,25 @@ git clone https://github.com/dmisino/speech_models.git
 cd speech_models
 ```
 
+## Installation and setup
+
+To run this project, you'll need Python installed on your machine. You can install from [python.org](https://www.python.org/downloads/).
+
 ### Whisper
 
 The OpenAI whisper module requires [ffmpeg](https://ffmpeg.org/), which must be fully installed. You may also need [Rust](https://www.rust-lang.org/) installed. See the [whisper github page](https://github.com/openai/whisper#setup) for more details.
 
-If you have properly installed whisper and it's dependencies, you can test it with the following commands. The wav file referenced is included with this repo, and was taken from [Open Speach Repository](https://www.voiptroubleshooter.com/open_speech/american.html). The sentences contained in the file may be viewed [here](https://www.cs.columbia.edu/~hgs/audio/harvard.html), as "list 3" for the specific audio file included in the example below.
+If you have properly installed whisper and it's dependencies, you can test it with the following commands. The wav file referenced is included with this repo, and was taken from [Open Speech Repository](https://www.voiptroubleshooter.com/open_speech/american.html). The sentences contained in the file may be viewed [here](https://www.cs.columbia.edu/~hgs/audio/harvard.html), under "list 3" for the specific audio file included in the example below.
 
 ```console
-# Try using whisper to transcribe audio to text 
+rem Try using whisper to transcribe audio to text 
 whisper "sample\OSR_us_000_0012_8k.wav" --model tiny --language en
 
-# Try using gpu
+rem Try using gpu
 whisper "sample\OSR_us_000_0012_8k.wav" --model tiny --language en --device cuda
 ```
 
-When using OpenAI Whisper for speech-to-text, the provided code will use a gpu if available, but this requires a gpu-enabled version of [pytorch](https://pytorch.org/). If you already have pytorch installed, you would need to uninstall and then add the gpu-enabled version if you would like to be able to use your gpu for stt transcription:
+When using OpenAI Whisper for speech-to-text, the provided code will use a gpu if available, but this requires a gpu-enabled version of [pytorch](https://pytorch.org/). If you already have pytorch installed, you would need to uninstall and then add the gpu-enabled version if you would like to use your gpu for stt transcription:
 
 ```console
 pip uninstall torch
@@ -60,7 +60,9 @@ pip install torch -f https://download.pytorch.org/whl/torch_stable.html
 
  ```console
 python stt.py
+
 rem OR
+
 python tts.py
  ```
 
@@ -93,7 +95,7 @@ python tts.py --language "ru" --model "v3_1_ru" --speaker "xenia" --text "Это
 
 ### Speech-to-text
 
-The speech-to-text (stt.py) page has one available command line argument to change the whisper model used. There are [5 options](https://github.com/openai/whisper#available-models-and-languages) available, with differences in size, memory requirements and speed. The default model used is "tiny" which is fastest and with the lowest resource requirements.
+The speech-to-text (stt.py) page has one available command line argument to change the whisper model used. There are [5 options](https://github.com/openai/whisper#available-models-and-languages), with differences in size, memory requirements and speed. The default model used is "tiny" which is fastest and with the lowest resource requirements.
 
 ```console
 rem stt.py command line options
